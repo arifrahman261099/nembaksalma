@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Untuk Putri Salma</title>
+  <style>
+    /* Reset dasar */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .container {
+      text-align: center;
+      z-index: 2;
+      color: #fff;
+      padding: 20px 30px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 15px;
+      animation: fadeIn 2s ease-in-out;
+      max-width: 500px;
+      width: 90%;
+    }
+    h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: 1.5em;
+      margin-bottom: 20px;
+    }
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #ff6f61;
+      color: #fff;
+      transition: background-color 0.3s ease;
+      white-space: nowrap;
+    }
+    button:hover {
+      background-color: #ff3b2e;
+    }
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    /* Animasi hati mengambang di background (terbang sampai ke atas) */
+    .heart {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: url('lovee.png') no-repeat center center;
+      background-size: contain;
+      animation: float 6s infinite;
+      opacity: 0.8;
+    }
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh) scale(1);
+        opacity: 0;
+      }
+    }
+    /* Overlay tampilan cinta dengan animasi */
+    .love-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: radial-gradient(circle, rgba(255,182,193,1) 0%, rgba(255,105,180,1) 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      z-index: 1000;
+      animation: fadeInOverlay 1s ease forwards;
+      overflow: hidden;
+      padding: 20px;
+      text-align: center;
+    }
+    @keyframes fadeInOverlay {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .love-overlay h1 {
+      font-size: 4em;
+      color: #fff;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    }
+    /* Animasi ledakan hati */
+    .heart-burst {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: url('lovee.png') no-repeat center center;
+      background-size: contain;
+      animation: burst 2s ease-out forwards;
+    }
+    @keyframes burst {
+      0% {
+        transform: scale(0);
+        opacity: 0;
+      }
+      50% {
+        transform: scale(1.5);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 0;
+      }
+    }
+    /* Animasi kartun */
+    .cartoon-container {
+      margin-top: 20px;
+      animation: bounce 3s infinite;
+    }
+    .cartoon-container img {
+      width: 250px;
+      max-width: 90%;
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+      }
+      40% {
+        transform: translateY(-30px);
+      }
+      60% {
+        transform: translateY(-15px);
+      }
+    }
+    /* Media Queries untuk tampilan mobile */
+    @media only screen and (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+      p {
+        font-size: 1.2em;
+      }
+      .button-container {
+        flex-direction: column;
+        gap: 10px;
+      }
+      button {
+        width: 100%;
+        padding: 10px;
+        font-size: 1em;
+      }
+      .cartoon-container img {
+        width: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Untuk Sayangkuuu Putri Salma</h1>
+    <p>Hai Sayangggg, jadi ceritanya aku mau nembak kamu nihh</p>
+    <p><strong>Kamu mau kan jadi pacar aku yang imut ini?</strong></p>
+    <div class="button-container">
+      <button onclick="showLoveAnimation()">Iyalah</button>
+      <button onclick="showLoveAnimation()">Ya masa nggak sihh</button>
+    </div>
+  </div>
+
+  <!-- Script JavaScript -->
+  <script>
+    // Fungsi untuk membuat hati mengambang di background
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = 4 + Math.random() * 4 + "s";
+      heart.style.animationDelay = Math.random() * 5 + "s";
+      document.body.appendChild(heart);
+      
+      // Hapus hati setelah animasi selesai
+      setTimeout(() => {
+        heart.remove();
+      }, parseFloat(heart.style.animationDuration) * 1000);
+    }
+    setInterval(createHeart, 500);
+
+    // Fungsi untuk menampilkan overlay cinta dengan animasi love dan kartun
+    function showLoveAnimation() {
+      // Sembunyikan kontainer awal
+      document.querySelector('.container').style.display = 'none';
+      
+      // Buat overlay untuk tampilan cinta
+      const overlay = document.createElement("div");
+      overlay.classList.add("love-overlay");
+      overlay.innerHTML = `
+        <h1>Yeayyyy sekarang kita udah pacarannnn</h1>
+        <div class="cartoon-container">
+          <img src="love.png" alt="Kartun Cinta">
+        </div>
+      `;
+      document.body.appendChild(overlay);
+      
+      // Buat animasi ledakan hati di overlay
+      createBurstHearts(overlay);
+    }
+
+    function createBurstHearts(overlay) {
+      for (let i = 0; i < 30; i++) {
+        const heart = document.createElement("div");
+        heart.classList.add("heart-burst");
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = Math.random() * 100 + "vh";
+        heart.style.animationDuration = (2 + Math.random() * 2) + "s";
+        overlay.appendChild(heart);
+        // Hapus hati setelah animasi selesai
+        setTimeout(() => {
+          heart.remove();
+        }, parseFloat(heart.style.animationDuration) * 1000);
+      }
+    }
+  </script>
+</body>
+</html>
